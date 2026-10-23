@@ -12,6 +12,7 @@ export function Sobre() {
         <div className="sobre__imagens" data-revelar>
           <div className="sobre__foto">
             <Midia imagem={s.imagem} />
+            {s.imagem.src && s.imagem.legenda && <span className="sobre__legenda">{s.imagem.legenda}</span>}
           </div>
           {s.imagemSecundaria && (
             <div className="sobre__foto-menor">

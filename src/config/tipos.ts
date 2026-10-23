@@ -22,6 +22,8 @@ export interface Imagem {
   alt: string
   /** CSS object-position, ex.: "50% 30%". */
   posicao?: string
+  /** Texto curto sobre a foto, ex.: "Imagem ilustrativa". */
+  legenda?: string
 }
 
 export interface Botao {

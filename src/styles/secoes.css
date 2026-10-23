@@ -534,6 +534,18 @@
   overflow: hidden;
   border-radius: var(--raio);
 }
+.sobre__legenda {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 4px 8px;
+  background: color-mix(in srgb, var(--cor-fundo-escuro) 55%, transparent);
+  color: var(--cor-texto-sobre-escuro);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 .sobre__foto-menor {
   position: absolute;
   right: 0;

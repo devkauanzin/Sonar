@@ -19,14 +19,14 @@ export const cliente: ClienteConfig = {
     seo: {
       titulo: 'Clínica Sonar Itaúna — Especialidades Médicas e Ultrassom',
       descricao:
-        'Clínica de especialidades médicas e ultrassom em Itaúna (MG). Clínico geral, dermatologia, nutrição, ultrassom e Holter 24h. Agende pelo WhatsApp.',
+        'Clínica de especialidades médicas e ultrassom em Itaúna (MG). Clínico geral, endocrinologia, dermatologia, nutrição, ultrassom e Holter 24h. Agende pelo WhatsApp.',
     },
     idioma: 'pt-BR',
   },
 
   marca: {
-    // PENDENTE: substituir pelo arquivo oficial da logo (SVG ou PNG em alta).
-    // Enquanto `logo` estiver vazio, o site compõe "S + símbolo + NAR".
+    // Símbolo vetorizado a partir da logo oficial enviada pela clínica.
+    // `logo` vazio = o site compõe "S + símbolo + NAR", como nos posts da clínica.
     logo: '',
     logoClaro: '',
     simbolo: '/clientes/sonar/simbolo.svg',
@@ -37,7 +37,7 @@ export const cliente: ClienteConfig = {
   tema: {
     ...temaPadrao,
     cores: {
-      primaria: '#E7834D',
+      primaria: '#D47B43',
       sobrePrimaria: '#1E1512',
       secundaria: '#A6461B',
       destaque: '#DDBB9C',
@@ -95,7 +95,7 @@ export const cliente: ClienteConfig = {
     sobretitulo: 'Especialidades médicas & ultrassom',
     titulo: 'Escutar com atenção. *Enxergar além.*',
     subtitulo:
-      'Consultas com clínico geral, dermatologia e nutrição, exames de ultrassom e Holter 24 horas em um só endereço, em Itaúna.',
+      'Consultas com clínico geral, endocrinologia, dermatologia e nutrição, exames de ultrassom e Holter 24 horas em um só endereço, em Itaúna.',
     destaques: ['Consultas e exames no mesmo lugar', 'Ultrassom além do gestacional', 'Agendamento pelo WhatsApp'],
     botaoPrincipal: { rotulo: 'Agendar pelo WhatsApp', destino: 'whatsapp' },
     botaoSecundario: { rotulo: 'Ligar (37) 3402-2999', destino: 'telefone' },
@@ -119,6 +119,14 @@ export const cliente: ClienteConfig = {
           'O ponto de partida do cuidado: investiga sintomas, orienta exames e acompanha a sua saúde de forma integral e personalizada.',
         linkRotulo: 'Agendar consulta',
         mensagem: 'Olá! Gostaria de agendar uma consulta com o clínico geral.',
+      },
+      {
+        nome: 'Endocrinologia',
+        categoria: 'Consulta',
+        descricao:
+          'Cuida dos hormônios e do metabolismo: tireoide, diabetes, peso, colesterol e outras alterações que afetam a energia e o bem-estar no dia a dia.',
+        linkRotulo: 'Agendar consulta',
+        mensagem: 'Olá! Gostaria de agendar uma consulta com o endocrinologista.',
       },
       {
         nome: 'Ultrassom',
@@ -167,8 +175,13 @@ export const cliente: ClienteConfig = {
     ],
     // Somente credenciais reais. Nenhuma foi informada até agora.
     credenciais: [],
-    // PENDENTE: foto da recepção, fachada ou equipe.
-    imagem: { src: '', alt: 'Recepção da Clínica Sonar em Itaúna' },
+    // Imagem gerada por IA (ilustrativa). PENDENTE: trocar por foto real da recepção.
+    imagem: {
+      src: '/clientes/sonar/recepcao.webp',
+      alt: 'Recepção de clínica com balcão de madeira e poltronas laranja (imagem ilustrativa)',
+      posicao: '40% 50%',
+      legenda: 'Imagem ilustrativa',
+    },
     imagemSecundaria: { src: '', alt: 'Detalhe do consultório da Clínica Sonar' },
     citacao: 'O Google pode te informar, mas quem cuida de verdade é o médico.',
   },
