@@ -13,8 +13,8 @@ export type SecaoId =
   | 'ctaFinal'
   | 'contato'
 
-/** Motivo gráfico de fundo: ondas (arcos concêntricos), losangos ou linhas finas. */
-export type Motivo = 'ondas' | 'losangos' | 'linhas'
+/** Motivo gráfico de fundo: ondas (arcos concêntricos), losangos, linhas finas ou nenhum (fundo limpo). */
+export type Motivo = 'ondas' | 'losangos' | 'linhas' | 'nenhum'
 
 export interface Imagem {
   /** Caminho a partir de /public. Vazio = o template desenha uma composição gráfica no lugar. */
@@ -57,6 +57,10 @@ export interface Tema {
     /** font-family completa. As fontes são carregadas em `fontes.ts`. */
     titulos: string
     textos: string
+    /** Peso dos títulos: 400 para serifadas expressivas, 700 para sans-serif como Arial. */
+    pesoTitulos?: number
+    /** Multiplica o tamanho dos títulos (sans-serif pesadas ficam melhores menores, ex.: 0.72). */
+    escalaTitulos?: number
   }
   /** Raio de borda base em px. 0 = arestas retas, editorial. */
   raio: number

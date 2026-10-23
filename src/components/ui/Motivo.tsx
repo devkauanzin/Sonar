@@ -16,6 +16,7 @@ interface Props {
  */
 export function Motivo({ x = 80, y = 50, tamanho = 520, aneis = 6, className = '' }: Props) {
   const motivo = cliente.tema.motivo
+  if (motivo === 'nenhum') return null
   const passo = tamanho / aneis
   const itens = Array.from({ length: aneis }, (_, i) => tamanho - i * passo)
 

@@ -38,19 +38,26 @@ export const cliente: ClienteConfig = {
     ...temaPadrao,
     cores: {
       primaria: '#D47B43',
-      sobrePrimaria: '#1E1512',
+      sobrePrimaria: '#1F2429',
       secundaria: '#A6461B',
-      destaque: '#DDBB9C',
-      fundo: '#F7F1EA',
-      fundoAlternativo: '#F0E5D8',
-      fundoEscuro: '#1E1714',
-      texto: '#231A16',
-      textoSecundario: '#6B5C53',
-      textoSobreEscuro: '#F5ECE3',
-      linha: '#E0D2C3',
+      destaque: '#E6C6AA',
+      // Branco gelo
+      fundo: '#F5F7F8',
+      fundoAlternativo: '#EDF1F3',
+      fundoEscuro: '#1F2429',
+      texto: '#1F2429',
+      textoSecundario: '#5C6670',
+      textoSobreEscuro: '#F5F7F8',
+      linha: '#DDE3E7',
     },
-    raio: 0,
-    motivo: 'ondas',
+    fontes: {
+      titulos: 'Arial, Helvetica, sans-serif',
+      textos: 'Arial, Helvetica, sans-serif',
+      pesoTitulos: 700,
+      escalaTitulos: 0.72,
+    },
+    raio: 10,
+    motivo: 'nenhum',
   },
 
   contato: {
@@ -90,7 +97,7 @@ export const cliente: ClienteConfig = {
 
   hero: {
     ativo: true,
-    layout: 'leque',
+    layout: 'centro',
     proporcao: [7, 5],
     sobretitulo: 'Especialidades médicas & ultrassom',
     titulo: 'Escutar com atenção. *Enxergar além.*',
@@ -99,9 +106,8 @@ export const cliente: ClienteConfig = {
     destaques: ['Consultas e exames no mesmo lugar', 'Ultrassom além do gestacional', 'Agendamento pelo WhatsApp'],
     botaoPrincipal: { rotulo: 'Agendar pelo WhatsApp', destino: 'whatsapp' },
     botaoSecundario: { rotulo: 'Ligar (37) 3402-2999', destino: 'telefone' },
-    // PENDENTE: foto real da clínica, equipe ou sala de ultrassom (vertical, mín. 1200 px de altura).
-    imagem: { src: '', alt: 'Sala de exames da Clínica Sonar', posicao: '50% 40%' },
-    etiqueta: 'Ultrassom · Holter 24h · Consultas',
+    // Layout 'centro' sem imagem: o topo fica só com o texto centralizado.
+    imagem: { src: '', alt: 'Sala de exames da Clínica Sonar' },
   },
 
   servicos: {
@@ -182,7 +188,6 @@ export const cliente: ClienteConfig = {
       posicao: '40% 50%',
       legenda: 'Imagem ilustrativa',
     },
-    imagemSecundaria: { src: '', alt: 'Detalhe do consultório da Clínica Sonar' },
     citacao: 'O Google pode te informar, mas quem cuida de verdade é o médico.',
   },
 

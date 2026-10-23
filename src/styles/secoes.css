@@ -129,8 +129,8 @@
     display: block;
     padding-block: 16px;
     font-family: var(--fonte-titulos);
-    font-size: 2.4rem;
-    font-weight: 400;
+    font-size: calc(2.4rem * var(--escala-titulos));
+    font-weight: var(--peso-titulos);
     line-height: 1.1;
   }
   .cabecalho__nav ul a::after {
@@ -173,10 +173,10 @@
 
 .hero__titulo {
   font-family: var(--fonte-titulos);
-  font-weight: 400;
-  font-size: clamp(3.2rem, 1.6rem + 6.2vw, 6.6rem);
-  line-height: 0.96;
-  letter-spacing: -0.018em;
+  font-weight: var(--peso-titulos);
+  font-size: calc(clamp(3.2rem, 1.6rem + 6.2vw, 6.6rem) * var(--escala-titulos));
+  line-height: calc(0.96 + (1 - var(--escala-titulos)) * 0.4);
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 .hero__titulo em {
@@ -319,19 +319,74 @@
     left: -12%;
     bottom: 12%;
   }
-  .hero--centro .hero__grade {
-    grid-template-columns: 1fr;
-    text-align: center;
-    justify-items: center;
-  }
-  .hero--centro .hero__acoes {
-    justify-content: center;
-  }
-  .hero--centro .hero__visual {
-    width: min(720px, 100%);
-  }
   .hero--recorte .hero__visual {
     margin-right: calc(var(--margem) * -1);
+  }
+}
+
+/* Hero centralizado */
+.hero--centro .hero__grade {
+  grid-template-columns: 1fr;
+  text-align: center;
+  justify-items: center;
+}
+.hero--centro .hero__texto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 860px;
+}
+.hero--centro .sobretitulo {
+  justify-content: center;
+  letter-spacing: 0.14em;
+}
+.hero--centro .sobretitulo__marca {
+  display: none;
+}
+@media (max-width: 639px) {
+  .hero--centro .hero__acoes {
+    flex-direction: column;
+    width: 100%;
+    max-width: 360px;
+  }
+}
+.hero--centro .hero__subtitulo {
+  max-width: 52ch;
+}
+.hero--centro .hero__acoes {
+  justify-content: center;
+}
+.hero--centro .hero__visual {
+  width: min(720px, 100%);
+}
+.hero--centro .hero__destaques {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 28px;
+  max-width: none;
+  border: 0;
+}
+.hero--centro .hero__destaques li {
+  padding: 0 0 0 16px;
+  border: 0;
+  color: var(--cor-texto-secundario);
+  font-size: 0.9rem;
+}
+.hero--centro .hero__destaques li::before {
+  left: 0;
+  top: 50%;
+  right: auto;
+  width: 6px;
+  height: 6px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--cor-primaria);
+  transform: translateY(-50%);
+}
+@media (min-width: 960px) {
+  .hero--centro {
+    min-height: min(86svh, 820px);
   }
 }
 
@@ -362,9 +417,9 @@
 }
 .servicos__contagem span {
   font-family: var(--fonte-titulos);
-  font-style: italic;
-  font-size: 3.6rem;
-  font-weight: 400;
+  font-style: var(--estilo-enfase);
+  font-size: calc(3.6rem * var(--escala-titulos));
+  font-weight: var(--peso-titulos);
   letter-spacing: 0;
   line-height: 1;
   color: var(--cor-secundaria);
@@ -399,9 +454,10 @@
 
 .servico__numero {
   font-family: var(--fonte-titulos);
-  font-style: italic;
-  font-size: 1.5rem;
-  line-height: 1.2;
+  font-style: var(--estilo-enfase);
+  font-weight: var(--peso-titulos);
+  font-size: calc(1.5rem * var(--escala-titulos));
+  line-height: 1.6;
   color: var(--cor-secundaria);
   transition: transform 0.4s var(--curva);
 }
@@ -416,9 +472,9 @@
 }
 .servico__nome {
   font-family: var(--fonte-titulos);
-  font-weight: 400;
-  font-size: clamp(1.9rem, 1.5rem + 1.4vw, 2.6rem);
-  line-height: 1.05;
+  font-weight: var(--peso-titulos);
+  font-size: calc(clamp(1.9rem, 1.5rem + 1.4vw, 2.6rem) * var(--escala-titulos));
+  line-height: 1.15;
 }
 .servico__categoria {
   padding: 3px 10px;
@@ -526,6 +582,8 @@
 }
 .sobre__imagens {
   position: relative;
+}
+.sobre__imagens--duplas {
   padding: 0 14% 14% 0;
 }
 .sobre__foto {
@@ -544,6 +602,7 @@
   font-size: 0.66rem;
   font-weight: 600;
   letter-spacing: 0.08em;
+  border-radius: calc(var(--raio) / 2);
   text-transform: uppercase;
 }
 .sobre__foto-menor {
@@ -611,8 +670,8 @@
 .sobre__citacao p {
   font-family: var(--fonte-titulos);
   font-style: italic;
-  font-size: clamp(1.45rem, 1.2rem + 0.9vw, 1.9rem);
-  line-height: 1.2;
+  font-size: calc(clamp(1.45rem, 1.2rem + 0.9vw, 1.9rem) * (0.25 + var(--escala-titulos)));
+  line-height: 1.35;
 }
 
 @media (min-width: 960px) {
@@ -652,7 +711,8 @@
 .diferencial__numero {
   display: block;
   font-family: var(--fonte-titulos);
-  font-size: clamp(3.4rem, 2.6rem + 2.4vw, 5rem);
+  font-weight: var(--peso-titulos);
+  font-size: calc(clamp(3.4rem, 2.6rem + 2.4vw, 5rem) * var(--escala-titulos));
   line-height: 0.9;
   color: var(--cor-primaria);
 }
@@ -739,7 +799,8 @@
   background: var(--cor-primaria);
   color: var(--cor-sobre-primaria);
   font-family: var(--fonte-titulos);
-  font-size: 1.25rem;
+  font-weight: var(--peso-titulos);
+  font-size: calc(1.25rem * (0.25 + var(--escala-titulos)));
 }
 [data-motivo='losangos'] .etapa__marcador,
 [data-motivo='losangos'] .etapa__marcador span {
@@ -748,9 +809,9 @@
 .etapa__titulo {
   align-self: center;
   font-family: var(--fonte-titulos);
-  font-weight: 400;
-  font-size: 1.75rem;
-  line-height: 1.1;
+  font-weight: var(--peso-titulos);
+  font-size: calc(1.75rem * var(--escala-titulos));
+  line-height: 1.25;
 }
 .etapa__descricao {
   margin-top: 8px;
@@ -804,8 +865,8 @@
 }
 .depoimento blockquote p {
   font-family: var(--fonte-titulos);
-  font-size: 1.55rem;
-  line-height: 1.25;
+  font-size: calc(1.55rem * (0.25 + var(--escala-titulos)));
+  line-height: 1.4;
 }
 .depoimento__autor {
   display: flex;
@@ -885,14 +946,17 @@
 }
 .cta__titulo {
   font-family: var(--fonte-titulos);
-  font-weight: 400;
-  font-size: clamp(2.8rem, 1.6rem + 5vw, 5.8rem);
-  line-height: 0.98;
-  letter-spacing: -0.015em;
+  font-weight: var(--peso-titulos);
+  font-size: calc(clamp(2.8rem, 1.6rem + 5vw, 5.8rem) * var(--escala-titulos));
+  line-height: calc(0.98 + (1 - var(--escala-titulos)) * 0.4);
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 .cta__titulo em {
-  font-style: italic;
+  font-style: var(--estilo-enfase);
+}
+[data-motivo='nenhum'] .cta__ondas {
+  display: none;
 }
 .cta__texto {
   max-width: 40ch;
@@ -949,8 +1013,9 @@
 }
 .contato__linha dd {
   font-family: var(--fonte-titulos);
-  font-size: clamp(1.55rem, 1.3rem + 0.9vw, 2rem);
-  line-height: 1.2;
+  font-weight: var(--peso-titulos);
+  font-size: calc(clamp(1.55rem, 1.3rem + 0.9vw, 2rem) * (0.1 + var(--escala-titulos)));
+  line-height: 1.3;
   overflow-wrap: anywhere;
 }
 .contato__linha dd > a {

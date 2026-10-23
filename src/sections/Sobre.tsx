@@ -9,7 +9,7 @@ export function Sobre() {
   return (
     <section id="sobre" className={`secao sobre sobre--${s.layout}`}>
       <div className="container sobre__grade">
-        <div className="sobre__imagens" data-revelar>
+        <div className={`sobre__imagens${s.imagemSecundaria ? ' sobre__imagens--duplas' : ''}`} data-revelar>
           <div className="sobre__foto">
             <Midia imagem={s.imagem} />
             {s.imagem.src && s.imagem.legenda && <span className="sobre__legenda">{s.imagem.legenda}</span>}

@@ -27,8 +27,8 @@ npm run preview   # serve o dist/ localmente
 2. Em `src/config/cliente.ts`, troque:
    - `empresa` — nome, cidade, título e descrição de SEO (vão direto para o `<head>` do HTML).
    - `marca` — caminhos da logo (veja abaixo).
-   - `tema` — cores, `raio` (0 = arestas retas), `respiro` (espaço entre seções) e `motivo`
-     (`'ondas'`, `'losangos'` ou `'linhas'`, que muda os elementos geométricos do site inteiro).
+   - `tema` — cores, `raio` (arredondamento de botões e fotos; 0 = arestas retas), `respiro`
+     (espaço entre seções) e `motivo` (`'ondas'`, `'losangos'`, `'linhas'` ou `'nenhum'` para fundo limpo).
    - `contato` — WhatsApp, telefones, e-mail, Instagram, endereço, link do mapa, horários.
    - Os blocos de cada seção (`hero`, `servicos`, `sobre`, `diferenciais`, `comoFunciona`,
      `depoimentos`, `ctaFinal`, `contato`) e o `rodape`.
@@ -80,6 +80,7 @@ usada como link direto.
 
 ## Fontes
 
-Atual: **Instrument Serif** (títulos, com itálico) + **Manrope** (textos). Para trocar,
-`npm i @fontsource/<fonte>`, ajuste os imports de `src/config/fontes.ts` e os nomes em
-`tema.fontes` no `cliente.ts`.
+Atual: **Arial** em títulos e textos (fonte do sistema, nada a carregar). Em `tema.fontes`:
+`pesoTitulos` (700 para sans-serif, 400 para serifadas) e `escalaTitulos` (tamanho relativo dos
+títulos). Para usar uma fonte da web, `npm i @fontsource/<fonte>`, importe-a em
+`src/config/fontes.ts` e ajuste os nomes em `tema.fontes`.

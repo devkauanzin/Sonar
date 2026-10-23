@@ -19,6 +19,9 @@
   --fonte-textos: 'Manrope Variable', 'Segoe UI', system-ui, sans-serif;
   --raio: 2px;
   --respiro: 1;
+  --peso-titulos: 400;
+  --escala-titulos: 1;
+  --estilo-enfase: italic;
 
   --largura: 1240px;
   --margem: clamp(20px, 5vw, 48px);
@@ -145,16 +148,16 @@ ul {
 
 .titulo-secao {
   font-family: var(--fonte-titulos);
-  font-weight: 400;
-  font-size: clamp(2.35rem, 1.5rem + 3.4vw, 4.25rem);
-  line-height: 1.02;
-  letter-spacing: -0.012em;
+  font-weight: var(--peso-titulos);
+  font-size: calc(clamp(2.35rem, 1.5rem + 3.4vw, 4.25rem) * var(--escala-titulos));
+  line-height: calc(1.02 + (1 - var(--escala-titulos)) * 0.4);
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 
 .titulo-secao em,
 .hero__titulo em {
-  font-style: italic;
+  font-style: var(--estilo-enfase);
   color: var(--cor-secundaria);
 }
 
@@ -222,13 +225,16 @@ ul {
 [data-motivo='losangos'] .sobretitulo__marca::after {
   display: none;
 }
-[data-motivo='linhas'] .sobretitulo__marca {
+[data-motivo='linhas'] .sobretitulo__marca,
+[data-motivo='nenhum'] .sobretitulo__marca {
   height: 1.5px;
   width: 28px;
   background: currentColor;
 }
 [data-motivo='linhas'] .sobretitulo__marca::before,
-[data-motivo='linhas'] .sobretitulo__marca::after {
+[data-motivo='linhas'] .sobretitulo__marca::after,
+[data-motivo='nenhum'] .sobretitulo__marca::before,
+[data-motivo='nenhum'] .sobretitulo__marca::after {
   display: none;
 }
 
@@ -298,7 +304,7 @@ ul {
   font-family: var(--fonte-textos);
   font-weight: 800;
   font-size: 1.5rem;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.06em;
 }
 .logo__simbolo {
   height: 1.08em;

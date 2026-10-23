@@ -36,25 +36,27 @@ export function Hero() {
           )}
         </div>
 
-        <figure className="hero__visual">
-          {h.layout === 'leque' ? (
-            <div className="hero__leque-area">
-              <div className="hero__leque" style={{ clipPath: leque.clipPath, aspectRatio: String(leque.proporcao) }}>
-                <Midia imagem={h.imagem} prioridade className="midia--escura" />
+        {(h.imagem.src || h.layout !== 'centro') && (
+          <figure className="hero__visual">
+            {h.layout === 'leque' ? (
+              <div className="hero__leque-area">
+                <div className="hero__leque" style={{ clipPath: leque.clipPath, aspectRatio: String(leque.proporcao) }}>
+                  <Midia imagem={h.imagem} prioridade className="midia--escura" />
+                </div>
+                <div className="hero__escala" aria-hidden="true">
+                  {Array.from({ length: 11 }, (_, i) => (
+                    <span key={i} className={i % 5 === 0 ? 'maior' : ''} />
+                  ))}
+                </div>
               </div>
-              <div className="hero__escala" aria-hidden="true">
-                {Array.from({ length: 11 }, (_, i) => (
-                  <span key={i} className={i % 5 === 0 ? 'maior' : ''} />
-                ))}
+            ) : (
+              <div className="hero__recorte">
+                <Midia imagem={h.imagem} prioridade />
               </div>
-            </div>
-          ) : (
-            <div className="hero__recorte">
-              <Midia imagem={h.imagem} prioridade />
-            </div>
-          )}
-          {h.etiqueta && <figcaption className="hero__etiqueta">{h.etiqueta}</figcaption>}
-        </figure>
+            )}
+            {h.etiqueta && <figcaption className="hero__etiqueta">{h.etiqueta}</figcaption>}
+          </figure>
+        )}
       </div>
     </section>
   )
